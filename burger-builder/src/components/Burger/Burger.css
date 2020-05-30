@@ -1,0 +1,111 @@
+.bread-top{
+    /* display: block; */
+    width: 40%;
+    height: 40px;
+    margin: 0 auto;
+    background-color: #be6441;
+    border-top-left-radius : 40px;
+    border-top-right-radius : 40px;
+}
+.layer   {
+    width: 90%;
+    text-align: center;
+    font-weight: bold;
+}
+.bread-bottom{
+    /* display: block; */
+    width: 40%;
+    height: 30px;
+    margin: 0 auto;
+    background-color: #be6441;
+    border-bottom-left-radius : 40px;
+    border-bottom-right-radius : 40px;
+}
+.cheese{
+    /* display: block; */
+    width: 45%;
+    height: 5px;
+    margin: 0 auto;
+    background-color: rgb(180, 190, 27);
+    border-radius : 40px;
+    /* border-top-right-radius : 40px; */
+}
+.salad{
+    /* display: block; */
+    width: 45%;
+    height: 5px;
+    margin: 0 auto;
+    background-color: green;
+    border-radius : 40px;
+    /* border-top-right-radius : 40px; */
+}
+.patty{
+    /* display: block; */
+    width: 50%;
+    height: 10px;
+    margin: 0 auto;
+    background-color: brown;
+    border-radius : 40px;
+    /* border-top-right-radius : 40px; */
+}
+.burger{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 500px;
+    overflow:auto;
+    /* background-color: rgb(144, 163, 144); */
+    display: block;
+    margin: 0 auto;
+    /* margin-top: 20px; */
+    padding-top: 50px;
+    /* padding-bottom: 90px; */
+    /* display: inline; */
+    /* justify-content: center; */
+}
+
+.burger > div{
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+ @media screen and (max-width: 480px) {
+    
+.bread-top{
+    width: 60%;
+    max-width: 100px;
+    height: 100%;
+    margin: 0 auto;
+}
+.bread-bottom{
+    width: 60%;
+    max-width: 100px;
+    height: 80%;
+    margin: 0 auto;
+}
+.patty{
+    /* width:  ; */
+    max-width: 120px;
+    height:100%;
+}
+.salad{
+    width: 40%;
+    max-width: 100px;
+    height:60%;
+}
+.cheese{
+    width: 60%;
+    max-width: 100px;
+    height: 10%;
+    /* padding: px; */
+}
+
+ .burger > div{
+    margin-bottom: 5px;
+    padding: 10px;
+} 
+/*.burger{
+    height:2vh;
+    background-color: brown;
+
+}  */
+} 

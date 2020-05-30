@@ -1,0 +1,12 @@
+.backdrop{
+    background-color: rgba(0, 0, 0, 0.47);
+    height:150%;
+    width: 100%;
+    top:0px;
+    left:0px;
+    z-index: 2;
+    position: absolute;
+}
+body{
+    /* overflow: hidden; */
+}

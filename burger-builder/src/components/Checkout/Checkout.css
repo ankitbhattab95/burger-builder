@@ -1,0 +1,31 @@
+.checkout{
+width: 80%;
+max-width: 700px;
+display:block;
+text-align: center; 
+position: fixed;
+background-color:rgb(245, 235, 205);
+padding-bottom: 4px;
+margin: 0 auto;
+z-index: 10;
+/* margin-top: 20px; */
+animation: animateCheckout .5s ;
+animation-fill-mode: forwards;
+}
+.button{
+    
+    margin-right: 10px;
+}
+
+
+@keyframes animateCheckout {
+    0% {transform: translateY(200%);
+    }
+    
+    100%{
+        /* top:15%; */
+        transform:translateY(40%);
+        /* transform:translatex(50%) */
+    }
+
+}
