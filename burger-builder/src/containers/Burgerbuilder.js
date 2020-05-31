@@ -3,7 +3,7 @@ import Aux from '../components/Aux/Aux'
 import Burger from '../components/Burger/Burger'
 import Buildcontrols from '../components/Buildcontrols/Buildcontrols';
 import classes from '../css-modules/Burgerbuilder.module.css'
-import Backdrop from '../components/Backdrop/Backdrop'
+// import Backdrop from '../components/Backdrop/Backdrop'
 
 
 class Burgerbuilder extends PureComponent {
@@ -63,7 +63,7 @@ class Burgerbuilder extends PureComponent {
     render() {
         return (
             <Aux >
-                {(this.state.checkout) ? <Backdrop /> : null}
+                {/* {(this.state.checkout) ? <Backdrop /> : null} */}
 
 
                 <div className={classes.controls}>

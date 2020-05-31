@@ -8,7 +8,7 @@ const Buildcontrol = (props) => {
         disableButton = false
     }
     return (
-        <div className={classes.update}>
+        <div className={[classes.update,"rounded"].join(" ")}>
             <div>
                <strong>{props.ingredient}</strong>
             </div>

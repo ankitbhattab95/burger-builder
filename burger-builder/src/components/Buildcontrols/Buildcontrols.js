@@ -3,16 +3,7 @@ import Aux from '../Aux/Aux'
 import Buildcontrol from './Buildcontrol/Buildcontrol'
 import classes from '../../css-modules/Burgerbuilder.module.css'
 import Checkout from '../Checkout/checkout';
-import Backdrop from '../Backdrop/Backdrop';
 
-
-// const input = {
-//     ingredients: {
-//         cheese: 0,
-//         patty: 1,
-//         salad: 2
-//     }
-// }
 const Buildcontrols = (props) => {
     const childCondtrols = Object.keys(props.ingredients).map((ingredient, index) => {
         return (
@@ -27,19 +18,24 @@ const Buildcontrols = (props) => {
             </div>)
     })
 
+    
+
     return (
-        <div>
-            {(props.isCheckout) ? <Checkout cancel={props.checkout} amount={props.amount}/> : null}
-            {/* {(props.isCheckout) ? <Backdrop/> : null} */}
-        
+        <div className={["roundd",classes.box].join(" ")}>
+            <Checkout amount={props.amount}/>
             <span className={classes.amount}>
                 Total Amount = <strong>{props.amount}</strong>
             </span>
             {childCondtrols}
-            <button onClick={props.checkout}
-                className={classes.orderButton}>
-                Order now
-            </button>
+            <button 
+                type="button"
+                className={[classes.order,"btn","btn-primary"].join(" ")}
+                data-toggle="modal"
+                data-target="#exampleModalCenter"
+                onClick={props.checkout}
+            >
+                Order Now
+             </button>
         </div>
         // </Aux>
     )
