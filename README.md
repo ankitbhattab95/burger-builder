@@ -1,15 +1,11 @@
-1) App deployed on Heroku :
+#### App deployed on Heroku :
+- [Go to live app - Burger builder](https://buildtheburger.herokuapp.com/)
 
-https://buildtheburger.herokuapp.com/
+#### Steps :
+- [How to Deploy React app using express server](https://www.freecodecamp.org/news/how-to-deploy-a-react-app-with-an-express-server-on-heroku-32244fe5a250/)
 
-
-2) How to Deploy React app using express server : 
-
-https://www.freecodecamp.org/news/how-to-deploy-a-react-app-with-an-express-server-on-heroku-32244fe5a250/
-
-
-3) Scripts
-
+#### Scripts
+```json
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start":"npx nodemon server.js", 
@@ -17,8 +13,7 @@ https://www.freecodecamp.org/news/how-to-deploy-a-react-app-with-an-express-serv
         "start:dev": "concurrently \"npm run start \" \"npm run start:client\"",
         "installPackage": "npm i && npm i --prefix ./burger-builder",
         "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix burger-builder && npm run build --prefix burger-builder"
-    }
+        }
+  ```
 
-4) Heroku looks for "start" and "heroku-postbuild"
-
-
+#### Heroku looks for "start" and "heroku-postbuild" scripts
