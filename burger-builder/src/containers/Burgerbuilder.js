@@ -72,7 +72,6 @@ class Burgerbuilder extends PureComponent {
                         amount={this.state.amount}
                         isCheckout={this.state.checkout}
                         checkout={() => this.orderClicked()}
-                        amount={this.state.amount}
                         addIngredient={(event) => this.addIngredient(event)}
                         subIngredient={(event) => this.subIngredient(event)}
                     />
