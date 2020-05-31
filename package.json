@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tart:server": "npx nodemon server.js",
-    "tart:client": "cd burger-builder && npm run start",
-    "tart:dev": "concurrently \"npm run start:server \" \"npm run start:client\"",
+    "start:server": "npx nodemon server.js",
+    "start:client": "cd burger-builder && npm run start",
+    "start:dev": "concurrently \"npm run start:server \" \"npm run start:client\"",
     "installPackage": "npm i && npm i --prefix ./burger-builder",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix burger-builder && npm run build --prefix burger-builder"
   },
