@@ -1,14 +1,15 @@
-App deployed on Heroku :
+1) App deployed on Heroku :
 
 https://buildtheburger.herokuapp.com/
 
 
-How to Deploy React app using express server : 
+2) How to Deploy React app using express server : 
 
 https://www.freecodecamp.org/news/how-to-deploy-a-react-app-with-an-express-server-on-heroku-32244fe5a250/
 
 
-Scripts
+3) Scripts
+
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start":"npx nodemon server.js", 
@@ -18,6 +19,6 @@ Scripts
         "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix burger-builder && npm run build --prefix burger-builder"
     }
 
-Heroku looks for "start" and "heroku-postbuild"
+4) Heroku looks for "start" and "heroku-postbuild"
 
 
