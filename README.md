@@ -19,6 +19,7 @@ Scripts
     "start":"npx nodemon server.js", 
 
     
+    "start":"npx nodemon server.js",
     "start:client": "cd burger-builder && npm run start",
     
     "start:dev": "concurrently \"npm run start \" \"npm run start:client\"",
@@ -30,7 +31,7 @@ Scripts
   }
 
 
-
+    
 Heroku looks for "start" and "heroku-postbuild" scripts specifically
 
 
