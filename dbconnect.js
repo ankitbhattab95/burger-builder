@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 dbconnect = async () => {
-    await mongoose.connect('mongodb+srv://ankit123:ankit123@cluster0-ldaxh.mongodb.net/test?retryWrites=true&w=majority',
+    await mongoose.connect('mongodb+srv://ankit123:ankit123@cluster0-ldaxh.mongodb.net/remotedb?retryWrites=true&w=majority',
         {
             useNewUrlParser: true,
             useUnifiedTopology: true

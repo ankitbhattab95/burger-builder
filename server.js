@@ -2,11 +2,18 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const port = process.env.PORT || 4000;
-const dbconnect= require('./dbconnect');
+const dbconnect = require('./dbconnect');
+const Person = require('./models/person')
 
+
+//to save data to DB
 app.get('/test', (req, res) => {
-    console.log('hiiiiii')
-    res.send('Hello World!')
+    person = new Person({
+        name: 'ankit',
+        age: "24"
+    });
+
+    person.save().then(res => console.log(res))
 })
 
 //Static file declaration
