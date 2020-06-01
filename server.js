@@ -2,8 +2,8 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const port = process.env.PORT || 4000;
-const dbconnect = require('./dbconnect');
-const Person = require('./models/person')
+const dbconnect = require('./ODM/dbconnect');
+const Person = require('./ODM/models/person')
 
 
 //to save data to DB
