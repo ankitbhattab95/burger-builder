@@ -72,3 +72,8 @@ nav .show > .nav-link {
 max-width: 40px;
 /* max-height: 99px; */
 }
+.nav-link:focus, .nav-link:hover {
+    text-decoration: none;
+    color: rgb(239, 238, 180)!important;
+    
+}

@@ -1,87 +1,60 @@
 body{
     font-family: 'Open Sans', sans-serif;
     background-color: #d8dcd8;
+    height: 100vh;
 }
 
-@media screen and (max-width: 400px) {
-    .showMenu{
-        /* display: flex; */
-        /* display: inline; */
-        /* display: none; */
+@media screen and (max-width: 986px) {
+    .menu{
         position: absolute;
         width: 85%;
+        max-width: 500px;
         height: 100vh;
-        padding-top: 10px;
+        padding-top: 100px;
         background-color: #444444f0;
         z-index: 50;
         top:0;
-        animation: menu .2s ;
-        /* animation-fill-mode: forwards; */
-
+    }
+   
+    .showMenu{
+        animation: menuAnimation .2s alternate;
     }
     .hideMenu{
-        /* display: flex; */
-        /* display: inline; */
-        /* display: none; */
-        position: absolute;
-        width: 85%;
-        height: 100vh;
-        padding-top: 10px;
-        background-color: #444444f0;
-        z-index: 50;
-        top:0;
-        animation: hide .2s ;
+        animation: hideAnimation .2s ;
         animation-fill-mode: forwards;
-
     }
-    .showMenu img {
-        margin: 0 auto;
-    }
-    .hideMenu img {
-        margin: 0 auto;
-    }
-    .showMenu > div{
+    
+    .menu > div{
         margin:10px;
         text-align: center;
+        font-size:large;
         color: white;
         border-bottom: 2px solid white;
-        /* border-top: 2px solid white; */
     }
-    .hideMenu > div{
-        margin:10px;
-        text-align: center;
-        color: white;
+    .menu > div:hover{
+        cursor: pointer;
+        font-size:large;
+        color: rgb(239, 238, 180);
+        transform: translateY(1px);
         border-bottom: 2px solid white;
-        /* border-top: 2px solid white; */
     }
-    @keyframes menu {
+    
+    @keyframes menuAnimation {
         0% {transform: translate(-100%);
         }
         
         100%{
-            /* top:15%; */
             transform:translateX(0%);
-            /* transform:translatex(50%) */
         }
 
     }
-    @keyframes hide {
+    @keyframes hideAnimation {
         0% {transform: translate(0%);
         }
         
         100%{
-            /* top:15%; */
             transform:translateX(-100%);
-            /* transform:translatex(50%) */
         }
 
     }
-}
-@media screen and (min-width: 400px){
-    .showMenu{
-        display: none;
-    }
-    .showMenu > div{
-        display: none;
-    } 
 }

@@ -11,47 +11,31 @@ class App extends Component {
   }
   menu = null
   showMenu = () => {
-    console.log(classes.showMenu)
+    let sidebar = '';
     if (!this.state.clicked) {
-      this.menu = (<div className={classes.showMenu}>
-        <div>
-          <img
-            src={logoSvg}
-            alt='ALTlogo'
-            className='logo'
-
-          ></img>
-        </div>
-        <div>My orders</div>
-        <div>Register</div>
-      </div>)
-    } else {
-      this.menu = (<div className={classes.hideMenu}>
-        <div>
-          <img
-            src={logoSvg}
-            alt='ALTlogo'
-            className='logo'
-
-          ></img>
-        </div>
-        <div>My orders</div>
-        <div>Register</div>
-      </div>);
+      sidebar = [classes.showMenu, classes.menu]
     }
+    else {
+      sidebar = [classes.hideMenu, classes.menu]
+    }
+    this.menu = (
+      <div className={sidebar.join(" ")}>
+        <div>My orders</div>
+        <div>Register</div>
+      </div>
+    )
     this.setState((prevState) => {
       return { clicked: !prevState.clicked }
     })
   }
 
-  // componentDidMount() {    this.connecToServer();  }
 
   render() {
     return (
       <Aux>
         {this.menu}
         <Navigation
-          clicked={() => this.showMenu()}
+          showSidebar={() => this.showMenu()}
         />
         <Layout />
       </Aux>
