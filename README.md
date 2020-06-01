@@ -13,7 +13,7 @@
         }
   ```
 
-- ## Heroku looks for "start" and "heroku-postbuild" scripts
+- ##### Heroku looks for "start" and "heroku-postbuild" scripts
 
 #### References :
 - [How to Deploy React app using express server](https://www.freecodecamp.org/news/how-to-deploy-a-react-app-with-an-express-server-on-heroku-32244fe5a250/)
