@@ -1,7 +1,7 @@
 #### App deployed on Heroku :
 - [Go to live app - Burger builder](https://buildtheburger.herokuapp.com/)
 
-#### Scripts
+#### Scripts :
 ```json
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,7 +13,10 @@
         }
   ```
 
-- ##### Heroku looks for "start" and "heroku-postbuild" scripts
+#### Notes :
+
+- Heroku looks for "start" and "heroku-postbuild" scripts
+- Connect mongo db compass to Atlas (remote DB) using the conncetion string provided by Atlas 
 
 #### References :
 - [How to Deploy React app using express server](https://www.freecodecamp.org/news/how-to-deploy-a-react-app-with-an-express-server-on-heroku-32244fe5a250/)
