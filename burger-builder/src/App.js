@@ -32,13 +32,13 @@ class App extends Component {
 
   render() {
     return (
-      <Aux>
+      <div className={classes.container}>
         {this.menu}
         <Navigation
           showSidebar={() => this.showMenu()}
         />
         <Layout />
-      </Aux>
+      </div>
     );
   }
 }
