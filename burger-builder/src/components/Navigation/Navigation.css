@@ -56,6 +56,7 @@
 .bg-light {
     background-color: #5e4390 !important;
     color: white!important;
+    font-size: 20px;
 }
 nav .show > .nav-link {
     color: white!important;
@@ -64,8 +65,8 @@ nav .show > .nav-link {
     color: white!important;
 }
 .navbar-nav .nav-link {
-    padding-right: 0;
-    padding-left: 0;
+    padding-right: 0rem;
+    padding-left: 0rem;
     color: white!important;
 }
 .navbar-brand >img{
@@ -74,6 +75,10 @@ max-width: 40px;
 }
 .nav-link:focus, .nav-link:hover {
     text-decoration: none;
-    color: rgb(239, 238, 180)!important;
-    
+    color: rgb(239, 238, 180)!important;   
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+	padding-right: 1rem;
+    padding-left: 1rem;
 }
