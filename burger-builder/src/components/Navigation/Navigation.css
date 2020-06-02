@@ -56,7 +56,7 @@
 .bg-light {
     background-color: #5e4390 !important;
     color: white!important;
-    font-size: 18px;
+    font-size: 20px;
 }
 nav .show > .nav-link {
     color: white!important;
@@ -70,8 +70,9 @@ nav .show > .nav-link {
     color: white!important;
 }
 .navbar-brand >img{
-max-width: 40px;
+max-width: 2.5rem;
 /* max-height: 99px; */
+padding:0;
 }
 .nav-link:focus, .nav-link:hover {
     text-decoration: none;
@@ -81,4 +82,31 @@ max-width: 40px;
 .navbar-expand-lg .navbar-nav .nav-link {
 	padding-right: 1rem;
     padding-left: 1rem;
+}
+.navbar-nav {
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -ms-flex-direction: column;
+    padding-right: .5rem!important;
+    flex-direction: column;
+    margin-bottom: 0;
+    list-style: none;
+    justify-content: flex-end;
+}
+.nav-link{
+    padding-right: 2rem!important;
+    padding-left: 2rem!important;
+}
+.navbar-brand{
+    display: inline-block;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    margin-left: .1rem;
+}
+.navbar-toggler {
+    padding: 0 !important;
+}
+button  img{
+    max-width: 40px;
 }

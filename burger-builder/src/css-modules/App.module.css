@@ -21,7 +21,7 @@ body{
     }
    
     .showMenu{
-        animation: menuAnimation .2s alternate;
+        animation: menuAnimation .2s ease-out ;
     }
     .hideMenu{
         animation: hideAnimation .2s ;
