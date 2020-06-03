@@ -1,27 +1,32 @@
 import React, { Component } from 'react';
-import Aux from './components/Aux/Aux'
 import classes from './css-modules/App.module.css'
+import './components/Sidebar/Sidebar.css'
 import Navigation from './components/Navigation/Navigation';
 import Layout from './components/Layout/Layout'
-import logoSvg from './Assets/Images/logo.svg'
+import Orders from './components/Orders/Orders';
+import OrderSummary from './components/OrderSummary/OrderSummary';
+import { Switch, Route } from 'react-router-dom'
+import Sidebar from './components/Sidebar/Sidebar'
 
 class App extends Component {
+
   state = {
     clicked: false
   }
+
   menu = null
+
   showMenu = () => {
     let sidebar = '';
     if (!this.state.clicked) {
-      sidebar = [classes.showMenu, classes.menu]
+      sidebar = ['showMenu', 'menu']
     }
     else {
-      sidebar = [classes.hideMenu, classes.menu]
+      sidebar = ['hideMenu', 'menu']
     }
     this.menu = (
       <div className={sidebar.join(" ")}>
-        <div>My orders</div>
-        <div>Register</div>
+        <Sidebar/>
       </div>
     )
     this.setState((prevState) => {
@@ -37,7 +42,11 @@ class App extends Component {
         <Navigation
           showSidebar={() => this.showMenu()}
         />
-        <Layout />
+        <Switch>
+          <Route path='/' exact component={Layout} />
+          <Route path='/orders' component={Orders} />
+          <Route path='/orderSummary' component={OrderSummary} />
+        </Switch>
       </div>
     );
   }

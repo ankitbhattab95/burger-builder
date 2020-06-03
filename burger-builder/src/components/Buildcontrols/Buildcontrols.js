@@ -22,10 +22,10 @@ const Buildcontrols = (props) => {
     
 
     return (
-        <div className={["roundd",classes.box].join(" ")}>
-            <Checkout amount={props.amount}/>
+        <div className={["rounded",classes.box].join(" ")}>
+            <Checkout className={classes.checkout} confirm={props.confirm} amount={props.amount}/>
             <span className={classes.amount}>
-                Total Amount = <strong>{props.amount}</strong>
+                Total Amount = <strong>${props.amount}</strong>
             </span>
             {childCondtrols}
             <button 
@@ -36,7 +36,7 @@ const Buildcontrols = (props) => {
                 onClick={props.checkout}
             >
                 Order Now
-             </button>
+            </button>
         </div>
         // </Aux>
     )

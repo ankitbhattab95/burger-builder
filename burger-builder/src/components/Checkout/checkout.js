@@ -1,6 +1,6 @@
 import React from 'react'
-// import './Checkout.css'
-import Aux from '../Aux/Aux'
+import './Checkout.css'
+
 const Checkout = (props) => {
     return (
         <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -19,7 +19,7 @@ const Checkout = (props) => {
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" className="btn btn-primary">Confirm</button>
+                        <button type="button" className="btn btn-primary" data-dismiss="modal" onClick={props.confirm}>Confirm</button>
                     </div>
                 </div>
             </div>

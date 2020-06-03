@@ -1,18 +1,16 @@
 .bg-light {
-    background-color: #5e4390 !important;
-    color: white!important;
+    background-color: #573d86 !important;
     font-size: 20px;
+    color: rgb(233, 255, 253)!important;
 }
-nav .show > .nav-link {
-    color: white!important;
-}
-.navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show > .nav-link {
-    color: white!important;
-}
+
+
 .navbar-nav .nav-link {
+    color: rgb(233, 255, 253)!important;
     padding-right: 0rem;
     padding-left: 0rem;
-    color: white!important;
+    /* color: tomato; */
+    /* color: white!important; */
 }
 .navbar-brand >img{
     max-width: 2.5rem;
@@ -21,7 +19,8 @@ nav .show > .nav-link {
 }
 .nav-link:focus, .nav-link:hover {
     text-decoration: none;
-    color: rgb(239, 238, 180)!important;   
+    outline: none;
+    /* color: rgb(239, 238, 180)!important;    */
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
@@ -59,3 +58,12 @@ button  img{
 .navbar{
     padding: .4rem;
 }
+.activeLink{
+    color: rgb(255, 255, 255)!important;
+    background-color: teal!important;
+    border-radius: 10px;
+    /* border: none; */
+}
+/* div ul li ,.inactive{
+    color: rgb(243, 212, 36);
+} */

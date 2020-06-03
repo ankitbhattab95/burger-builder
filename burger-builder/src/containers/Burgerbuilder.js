@@ -4,6 +4,7 @@ import Burger from '../components/Burger/Burger'
 import Buildcontrols from '../components/Buildcontrols/Buildcontrols';
 import classes from '../css-modules/Burgerbuilder.module.css'
 // import Backdrop from '../components/Backdrop/Backdrop'
+import {withRouter} from 'react-router-dom'
 
 
 class Burgerbuilder extends PureComponent {
@@ -59,15 +60,18 @@ class Burgerbuilder extends PureComponent {
         let checkoutCopy = this.state.checkout
         this.setState({ checkout: !checkoutCopy })
     }
+    confirmOrder=()=>{
+        console.log('inside co ',this.props)
+        this.props.history.push('/orderSummary')
+        
+    }
 
     render() {
         return (
             <Aux >
-                {/* {(this.state.checkout) ? <Backdrop /> : null} */}
-
-
                 <div className={classes.controls}>
                     <Buildcontrols
+                    confirm={()=>this.confirmOrder()}
                         ingredients={this.state.ingredients}
                         amount={this.state.amount}
                         isCheckout={this.state.checkout}
@@ -87,4 +91,4 @@ class Burgerbuilder extends PureComponent {
         );
     }
 }
-export default Burgerbuilder;
+export default withRouter(Burgerbuilder);

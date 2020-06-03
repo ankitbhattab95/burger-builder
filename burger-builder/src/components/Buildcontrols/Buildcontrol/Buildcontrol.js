@@ -11,7 +11,6 @@ const Buildcontrol = (props) => {
         <div className={[classes.update, "rounded"].join(" ")}>
             <div>
                 {props.ingredient}
-                {console.log('----',props.ingredient)}
                 <span> (${props.cost[props.ingredient]})</span>
             </div>
             <div>

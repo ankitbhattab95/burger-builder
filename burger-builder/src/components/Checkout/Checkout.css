@@ -1,4 +1,4 @@
-.checkout{
+/* .checkout{
 width: 80%;
 max-width: 700px;
 display:block;
@@ -8,7 +8,6 @@ background-color:rgb(245, 235, 205);
 padding-bottom: 4px;
 margin: 0 auto;
 z-index: 10;
-/* margin-top: 20px; */
 animation: animateCheckout .5s ;
 animation-fill-mode: forwards;
 }
@@ -23,9 +22,9 @@ animation-fill-mode: forwards;
     }
     
     100%{
-        /* top:15%; */
         transform:translateY(40%);
-        /* transform:translatex(50%) */
     }
-
+} */
+.modal-content{
+    transition: opacity .15s linear;;
 }
