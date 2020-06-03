@@ -25,19 +25,20 @@
         font-size:large;
         /* color: white; */
         padding-left: 1rem;
+        /* background-color: green; */
         list-style-type: none;
     }
-    .menu li:hover{
+    .inactive:hover{
         cursor: pointer;
-        color: rgb(239, 238, 180);
-        transform: translateX(1px);
+        color: #d4a344;
+        transform: translatey(10px);
     }
     .inactive{
         color: white;
     }
     .active{
         color: rgb(251, 209, 112)!important;
-        border-bottom: 2px solid white;
+        /* border-bottom: 2px solid white; */
     }
     .active:focus{
        outline: none;

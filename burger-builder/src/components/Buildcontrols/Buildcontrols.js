@@ -19,18 +19,21 @@ const Buildcontrols = (props) => {
             </div>)
     })
 
-    
+
 
     return (
-        <div className={["rounded",classes.box].join(" ")}>
-            <Checkout className={classes.checkout} confirm={props.confirm} amount={props.amount}/>
+        <div className={["rounded", classes.box].join(" ")}>
+            <Checkout className={classes.checkout}
+                confirm={props.confirm}
+                amount={props.amount}
+            />
             <span className={classes.amount}>
                 Total Amount = <strong>${props.amount}</strong>
             </span>
             {childCondtrols}
-            <button 
+            <button
                 type="button"
-                className={[classes.order,"btn","btn-primary"].join(" ")}
+                className={[classes.order, "btn", "btn-primary"].join(" ")}
                 data-toggle="modal"
                 data-target="#exampleModalCenter"
                 onClick={props.checkout}

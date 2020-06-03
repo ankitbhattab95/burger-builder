@@ -26,7 +26,7 @@ class App extends Component {
     }
     this.menu = (
       <div className={sidebar.join(" ")}>
-        <Sidebar/>
+        <Sidebar />
       </div>
     )
     this.setState((prevState) => {

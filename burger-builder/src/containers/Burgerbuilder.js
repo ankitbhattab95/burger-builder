@@ -4,7 +4,8 @@ import Burger from '../components/Burger/Burger'
 import Buildcontrols from '../components/Buildcontrols/Buildcontrols';
 import classes from '../css-modules/Burgerbuilder.module.css'
 // import Backdrop from '../components/Backdrop/Backdrop'
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
+// import { urlencoded } from 'express';
 
 
 class Burgerbuilder extends PureComponent {
@@ -25,7 +26,7 @@ class Burgerbuilder extends PureComponent {
     }
     updatedIngredients = null;
     count;
-    type
+    type;
 
     addIngredient = (event) => {
         let index = event.target.getAttribute('index')
@@ -60,10 +61,22 @@ class Burgerbuilder extends PureComponent {
         let checkoutCopy = this.state.checkout
         this.setState({ checkout: !checkoutCopy })
     }
-    confirmOrder=()=>{
-        console.log('inside co ',this.props)
-        this.props.history.push('/orderSummary')
+    confirmOrder = () => {
+        // console.log('inside co ', this.state.ingredients)
+        let searchParams = { ...this.state.ingredients };
+        let query = '?';
+        let key;
+        let value;
+        // console.log('b4--', query.toString())
+        for (let i in Object.keys(searchParams)) {
+            key = Object.keys(searchParams)[i]
+            value = Object.values(searchParams)[i]
+            query += encodeURIComponent(key) + '=' + encodeURIComponent(value) + '&'
+        }
         
+        console.log('search----', query)
+        this.props.history.push('/orderSummary' + query)
+
     }
 
     render() {
@@ -71,7 +84,7 @@ class Burgerbuilder extends PureComponent {
             <Aux >
                 <div className={classes.controls}>
                     <Buildcontrols
-                    confirm={()=>this.confirmOrder()}
+                        confirm={() => this.confirmOrder()}
                         ingredients={this.state.ingredients}
                         amount={this.state.amount}
                         isCheckout={this.state.checkout}

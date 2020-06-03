@@ -8,7 +8,7 @@ const Navigation = (props) => {
         <div>
 
             <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-                <NavLink to='/' className="navbar-brand inactive" href="#">
+                <NavLink to='/' className="navbar-brand" href="#">
                     <img src={logoSvg} alt="Buder builder"></img>
                 </NavLink>
                 <button className="navbar-toggler" type="button" data-toggle="collapse"
