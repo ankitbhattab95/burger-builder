@@ -8,12 +8,14 @@ const Buildcontrol = (props) => {
         disableButton = false
     }
     return (
-        <div className={[classes.update,"rounded"].join(" ")}>
+        <div className={[classes.update, "rounded"].join(" ")}>
             <div>
-               <strong>{props.ingredient}</strong>
+                {props.ingredient}
+                {console.log('----',props.ingredient)}
+                <span> (${props.cost[props.ingredient]})</span>
             </div>
             <div>
-                <button 
+                <button
                     className={classes.button}
                     onClick={props.subIngredient}
                     index={props.index} disabled={disableButton} >

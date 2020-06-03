@@ -12,6 +12,7 @@ const Buildcontrols = (props) => {
                     ingredient={ingredient}
                     count={props.ingredients[ingredient]}
                     index={index}
+                    cost={props.cost}
                     addIngredient={props.addIngredient}
                     subIngredient={props.subIngredient}
                 />

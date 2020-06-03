@@ -10,15 +10,15 @@ class Burgerbuilder extends PureComponent {
 
     state = {
         ingredients: {
-            Cheese: 0,
-            Patty: 0,
-            Salad: 0
+            cheese: 0,
+            patty: 0,
+            salad: 0
         },
         amount: 0,
         checkout: false
     }
     cost = {
-        cheeseCost: 5,
+        cheese: 5,
         patty: 10,
         salad: 5
     }
@@ -71,6 +71,7 @@ class Burgerbuilder extends PureComponent {
                         ingredients={this.state.ingredients}
                         amount={this.state.amount}
                         isCheckout={this.state.checkout}
+                        cost={this.cost}
                         checkout={() => this.orderClicked()}
                         addIngredient={(event) => this.addIngredient(event)}
                         subIngredient={(event) => this.subIngredient(event)}

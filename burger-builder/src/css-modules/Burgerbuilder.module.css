@@ -45,6 +45,9 @@
     background-color: rgb(148, 179, 148);
     margin:10px auto;
     width :90%;
+    text-transform: capitalize;
+    font-weight: 600;
+    gap: .5rem;
 }
 
 .button {
