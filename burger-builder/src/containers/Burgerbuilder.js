@@ -20,7 +20,10 @@ class Burgerbuilder extends PureComponent {
 
     async componentDidMount() {
         try {
-            let res = await axios({ url: 'getIngredientDetails', baseURL: 'http://localhost:' + process.env.PORT || '4000' })
+            let res = await axios({
+                url: 'getIngredientDetails',
+                baseURL: 'http://localhost:' + (process.env.PORT || '4000')
+            })
             let formatIngredients = {}
             let formatCost = {}
             for (let i in res.data) {
@@ -88,7 +91,7 @@ class Burgerbuilder extends PureComponent {
                 url: '/confirm',
                 method: 'post',
                 data: body,
-                baseURL: 'http://localhost:' + process.env.PORT || '4000'
+                baseURL: 'http://localhost:' + (process.env.PORT || '4000')
             });
         }
         catch (err) {

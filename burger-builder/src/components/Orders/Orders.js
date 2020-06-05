@@ -12,7 +12,7 @@ class Orders extends Component {
     childOrder = null;
     async componentDidMount() {
         try {
-            let response = await axios({ url: '/orders', baseURL: 'http://localhost:' + process.env.PORT || '4000' })
+            let response = await axios({ url: '/orders', baseURL: 'http://localhost:' + (process.env.PORT || '4000') })
             let res = response.data.reverse()
             let item = []
             let items = []
