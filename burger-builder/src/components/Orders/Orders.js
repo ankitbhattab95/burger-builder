@@ -12,8 +12,8 @@ class Orders extends Component {
     childOrder = null;
     async componentDidMount() {
         try {
-            let response = await axios({ url: '/orders', baseURL: 'http://localhost:4000' })
-            let res=response.data.reverse()
+            let response = await axios({ url: '/orders', baseURL: 'http://localhost:' + process.env.PORT || '4000' })
+            let res = response.data.reverse()
             let item = []
             let items = []
             let orders = []
@@ -49,11 +49,11 @@ class Orders extends Component {
 
             this.childOrder = Object.keys(res).map(order => {
                 return (
-                <Order key={res[order]._id} 
-                id={res[order]._id} 
-                date={new Date(res[order].date.toString())}
-                amount={res[order].amount} 
-                item={items[order]} />)
+                    <Order key={res[order]._id}
+                        id={res[order]._id}
+                        date={new Date(res[order].date.toString())}
+                        amount={res[order].amount}
+                        item={items[order]} />)
             })
             this.show = this.childOrder
             this.setState({ updated: true })
