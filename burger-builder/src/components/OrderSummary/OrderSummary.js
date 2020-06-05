@@ -1,45 +1,56 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import './OrderSummary.css'
+import classes from './OrderSummary.module.css'
+// import './OrderSummary.css'
 
 class OrderSummary extends Component {
     render() {
         let a = new URLSearchParams(this.props.location.search)
         let item = [];
         let key;
-        for (let p of a) {
-            key = p + '_' + a
-            item.push(<React.Fragment key={key}>
-                < div className="card-text" >
-                    <div className='title'>
-                        {p[0]}
-                    </div>
-                </div >
-                <div className="card-text">
-                    <div className='title'>
-                        {p[1]}
-                    </div>
-                </div>
-            </React.Fragment>)
+        let params = a.toString().split('&')
+        let amount = params.pop().split('=')[1]
+        let order = []
+        for (let i in params) {
+            order[i] = params[i].split('=')
+        }
+        for (let p of order) {
+            if (p[1] > 0) {
+                key = p + '_' + order
+                item.push(
+                    <React.Fragment key={key}>
+                        < div className="card-text"  >
+                            <div className={classes.title}>
+                                {p[0]}
+                            </div>
+                        </div >
+                        <div className="card-text">
+                            <div className={classes.title}>
+                                {p[1]}
+                            </div>
+                        </div>
+                    </React.Fragment>
+                )
+            }
         }
         return (
-            <div className='orderSummary'>
-                <div className="card">
+            <div className={classes.orderSummary}>
+                <div className={["card", classes.card].join(' ')}>
                     <div className="card-body">
-                        <h5 className="card-title">Order Summary</h5>
-                        <div className="bill">
-                            <div className="card-text allBorder" >
-                                <div className='title'>Items</div>
+                        <h5 className={["card-text", classes.cardTitle].join(' ')}>Order placed Successfully!</h5>
+                        <div className={classes.bill}>
+                            <div className={["card-text", classes.allBorder].join(' ')} >
+                                <div className={classes.title}>Items</div>
                             </div>
-                            <div className="card-text allBorder">
-                                <div className='title'>Quantity</div>
+                            <div className={["card-text", classes.allBorder].join(' ')}>
+                                <div className={classes.title}>Quantity</div>
                             </div>
                             {item}
-                            <div className="card-text borderTopBottom" >
-                                <div className='title'>TOTAL Amount</div>
+                            <div className={["card-text", classes.borderTopBottom].join(' ')} >
+                                <div className={classes.title}>TOTAL Amount</div>
                             </div>
-                            <div className="card-text borderTopBottom">
-                                <div className='title'>TBD</div>
+                            <div className={["card-text", classes.borderTopBottom].join(' ')}>
+                                <div className={classes.title}>${amount}</div>
                             </div>
                         </div>
                         <div className='link'>

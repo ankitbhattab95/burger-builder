@@ -5,28 +5,35 @@ import Buildcontrols from '../components/Buildcontrols/Buildcontrols';
 import classes from '../css-modules/Burgerbuilder.module.css'
 // import Backdrop from '../components/Backdrop/Backdrop'
 import { withRouter } from 'react-router-dom'
+import Spinner from '../components/Spinner/Spinner';
+const axios = require('axios');
 // import { urlencoded } from 'express';
 
 
 class Burgerbuilder extends PureComponent {
 
-    state = {
-        ingredients: {
-            cheese: 0,
-            patty: 0,
-            salad: 0
-        },
-        amount: 0,
-        checkout: false
-    }
-    cost = {
-        cheese: 5,
-        patty: 10,
-        salad: 5
-    }
+    state = null;
+    cost = null;
     updatedIngredients = null;
     count;
     type;
+
+    async componentDidMount() {
+        try {
+            let res = await axios({ url: 'getIngredientDetails', baseURL: 'http://localhost:4000' })
+            let formatIngredients = {}
+            let formatCost = {}
+            for (let i in res.data) {
+                formatIngredients[res.data[i].ingredientName] = 0;
+                formatCost[res.data[i].ingredientName] = res.data[i].cost
+            }
+            this.cost = formatCost;
+            this.setState({ ingredients: formatIngredients });
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
 
     addIngredient = (event) => {
         let index = event.target.getAttribute('index')
@@ -37,18 +44,21 @@ class Burgerbuilder extends PureComponent {
         this.setTypeAndCount(this.updatedIngredients[increasedIngredient], increasedIngredient)
         this.updateAmount(this.updatedIngredients)
     }
+
     setTypeAndCount(count, type) {
         this.count = count;
         this.type = type;
     }
+
     subIngredient = (event) => {
         let index = event.target.getAttribute('index')
         this.updatedIngredients = { ...this.state.ingredients }
-        let increasedIngredient = Object.keys(this.updatedIngredients)[index]
-        this.updatedIngredients[increasedIngredient] = this.updatedIngredients[increasedIngredient] - 1
+        let decreasedIngredient = Object.keys(this.updatedIngredients)[index]
+        this.updatedIngredients[decreasedIngredient] = this.updatedIngredients[decreasedIngredient] - 1
         this.setState({ ingredients: this.updatedIngredients })
         this.updateAmount(this.updatedIngredients)
     }
+
     updateAmount = (updatedIngredients) => {
         let totalAmount = 0;
         let updatedIngredientsArray = Object.keys(updatedIngredients)
@@ -57,49 +67,72 @@ class Burgerbuilder extends PureComponent {
         }
         this.setState({ amount: totalAmount })
     }
+
     orderClicked = () => {
         let checkoutCopy = this.state.checkout
         this.setState({ checkout: !checkoutCopy })
     }
-    confirmOrder = () => {
-        // console.log('inside co ', this.state.ingredients)
+
+    confirmOrder = async () => {
+        await this.postOrder();
+        this.routeToOrderSummary();
+    }
+
+    async postOrder() {
+        try {
+            let body = {
+                ingredients: this.state.ingredients,
+                amount: this.state.amount
+            };
+            let res = await axios({
+                url: '/confirm',
+                method: 'post',
+                data: body,
+                baseURL: 'http://localhost:4000'
+            });
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+
+    routeToOrderSummary() {
         let searchParams = { ...this.state.ingredients };
         let query = '?';
         let key;
         let value;
-        // console.log('b4--', query.toString())
         for (let i in Object.keys(searchParams)) {
-            key = Object.keys(searchParams)[i]
-            value = Object.values(searchParams)[i]
-            query += encodeURIComponent(key) + '=' + encodeURIComponent(value) + '&'
+            key = Object.keys(searchParams)[i];
+            value = Object.values(searchParams)[i];
+            query += encodeURIComponent(key) + '=' + encodeURIComponent(value) + '&';
         }
-        
-        console.log('search----', query)
-        this.props.history.push('/orderSummary' + query)
-
+        this.props.history.push('/orderSummary' + query + 'amount=' + encodeURIComponent(this.state.amount));
     }
 
     render() {
         return (
             <Aux >
-                <div className={classes.controls}>
-                    <Buildcontrols
-                        confirm={() => this.confirmOrder()}
-                        ingredients={this.state.ingredients}
-                        amount={this.state.amount}
-                        isCheckout={this.state.checkout}
-                        cost={this.cost}
-                        checkout={() => this.orderClicked()}
-                        addIngredient={(event) => this.addIngredient(event)}
-                        subIngredient={(event) => this.subIngredient(event)}
-                    />
-                </div>
-                <Burger
-                    type={this.type}
-                    count={this.count}
-                    ingredients={this.state.ingredients}
-
-                />
+                {(this.state) ?
+                    <Aux>
+                        <div className={classes.controls}>
+                            <Buildcontrols
+                                confirm={() => this.confirmOrder()}
+                                ingredients={this.state.ingredients}
+                                amount={this.state.amount}
+                                isCheckout={this.state.checkout}
+                                cost={this.cost}
+                                checkout={() => this.orderClicked()}
+                                addIngredient={(event) => this.addIngredient(event)}
+                                subIngredient={(event) => this.subIngredient(event)}
+                            />
+                        </div>
+                        <Burger
+                            type={this.type}
+                            count={this.count}
+                            ingredients={this.state.ingredients}
+                        />
+                    </Aux>
+                    : <Spinner />}
             </Aux>
         );
     }

@@ -10,9 +10,10 @@
     margin-left: auto;
     margin-right: auto;
     max-width: 500px;
+    margin-bottom: 1.5rem;
     /* max-width: 600px; */
     /* min-width: 300px; */
-    background-color: rgb(214, 207, 243);
+    background-color: rgba(236, 162, 109, 0.23);
 }
 .allBorder{
     text-decoration:underline;
@@ -29,8 +30,10 @@
 .card-subtitle{
     margin-bottom: 200px;
 }
-.card-title{
-    text-align: center;
+.cardTitle {
+	text-align: center;
+	color: #1e920e;
+	font-weight: bold;
 }
 .title{
     margin: 5px;
@@ -38,6 +41,12 @@
     font-weight: 600;
     max-width: 200px;
     text-transform: capitalize;
+}
+.subtitle{
+    margin-top: 20px;
+    margin-bottom: 0;
+    text-align: center;
+    padding-bottom: 0;
 }
 .borderTopBottom{
     border-top: 2px solid black;

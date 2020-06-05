@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import Aux from '../Aux/Aux'
 import Buildcontrol from './Buildcontrol/Buildcontrol'
-import classes from '../../css-modules/Burgerbuilder.module.css'
 import Checkout from '../Checkout/checkout';
+import classes from '../../css-modules/Burgerbuilder.module.css'
 
 const Buildcontrols = (props) => {
+    let isDisabled=true
+        if(Object.values(props.ingredients).reduce((accumulator, currentValue) => accumulator + currentValue)){
+            isDisabled = false;
+        }
     const childCondtrols = Object.keys(props.ingredients).map((ingredient, index) => {
         return (
             <div key={index} >
@@ -20,7 +24,6 @@ const Buildcontrols = (props) => {
     })
 
 
-
     return (
         <div className={["rounded", classes.box].join(" ")}>
             <Checkout className={classes.checkout}
@@ -31,7 +34,8 @@ const Buildcontrols = (props) => {
                 Total Amount = <strong>${props.amount}</strong>
             </span>
             {childCondtrols}
-            <button
+            <button 
+                disabled={isDisabled}
                 type="button"
                 className={[classes.order, "btn", "btn-primary"].join(" ")}
                 data-toggle="modal"

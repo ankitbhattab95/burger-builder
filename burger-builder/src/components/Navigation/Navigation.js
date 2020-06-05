@@ -26,7 +26,13 @@ const Navigation = (props) => {
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink to='/' exact className="nav-link inactive"
+                            <NavLink to='/orders' className="nav-link inactive"
+                                activeClassName="activeLink">
+                                My Orders
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink to='/register' exact className="nav-link inactive"
                                 activeClassName="activeLink">
                                 Register
                             </NavLink>

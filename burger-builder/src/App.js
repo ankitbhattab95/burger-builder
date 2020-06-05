@@ -16,16 +16,16 @@ class App extends Component {
 
   menu = null
 
-  showMenu = () => {
-    let sidebar = '';
+  sidebar = '';
+  toggleMenu = () => {
     if (!this.state.clicked) {
-      sidebar = ['showMenu', 'menu']
+      this.sidebar = ['showMenu', 'menu']
     }
     else {
-      sidebar = ['hideMenu', 'menu']
+      this.sidebar = ['hideMenu', 'menu']
     }
     this.menu = (
-      <div className={sidebar.join(" ")}>
+      <div className={this.sidebar.join(" ")}>
         <Sidebar />
       </div>
     )
@@ -33,21 +33,29 @@ class App extends Component {
       return { clicked: !prevState.clicked }
     })
   }
+  hideMenu = () => {
+    if (this.sidebar.includes('showMenu')) {
+      this.toggleMenu()
+    }
+  }
 
 
   render() {
     return (
-      <div className={classes.container}>
-        {this.menu}
+      <React.Fragment>
         <Navigation
-          showSidebar={() => this.showMenu()}
+          showSidebar={() => this.toggleMenu()}
         />
-        <Switch>
-          <Route path='/' exact component={Layout} />
-          <Route path='/orders' component={Orders} />
-          <Route path='/orderSummary' component={OrderSummary} />
-        </Switch>
-      </div>
+        <div className={classes.container} onClick={() => this.hideMenu()} >
+          {this.menu}
+          <Switch>
+            <Route path='/' exact render={(props) => <Layout hideMenu={() => this.toggleMenu()} />} />
+            <Route path='/orders' component={Orders} />
+            <Route path='/orderSummary' component={OrderSummary} />
+            <Route render={() => <div style={{ marginTop: '80px' }}>No such route</div>} />
+          </Switch>
+        </div>
+      </React.Fragment>
     );
   }
 }
