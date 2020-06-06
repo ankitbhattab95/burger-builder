@@ -22,7 +22,7 @@ class Burgerbuilder extends PureComponent {
         try {
             let res = await axios({
                 url: 'getIngredientDetails',
-                baseURL: 'http://localhost:' + (process.env.PORT || '4000')
+                baseURL: process.env.SRV_URL || ('http://localhost:4000')
             })
             let formatIngredients = {}
             let formatCost = {}
@@ -91,7 +91,7 @@ class Burgerbuilder extends PureComponent {
                 url: '/confirm',
                 method: 'post',
                 data: body,
-                baseURL: 'http://localhost:' + (process.env.PORT || '4000')
+                baseURL: process.env.SRV_URL || ('http://localhost:4000')
             });
         }
         catch (err) {
