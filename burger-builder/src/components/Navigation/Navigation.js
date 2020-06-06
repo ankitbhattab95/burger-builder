@@ -2,6 +2,7 @@ import React from 'react'
 // import './Navigation.css'
 import classes from './Navigation.css'
 import logoSvg from '../../Assets/Images/logo.svg'
+import menuIcon from '../../Assets/Images/menu.png'
 import { NavLink } from 'react-router-dom'
 const Navigation = (props) => {
     return (
@@ -14,7 +15,7 @@ const Navigation = (props) => {
                 <button className="navbar-toggler" type="button" data-toggle="collapse"
                     onClick={props.showSidebar} data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span><img src="https://img.icons8.com/fluent/48/000000/menu--v1.png" /></span>
+                    <span><img src={menuIcon} alt='Menu'/></span>
 
                 </button>
 

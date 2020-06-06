@@ -85,6 +85,8 @@ app.get('*', (req, res) => {
 app.listen(port, async () => {
     await dbconnect();
     console.log(`App listening on port ${port}`)
+    console.log('process.env.NODE_ENV-----------------',process.env.NODE_ENV)
+    console.log('process.env.SRV_URL-----------------',process.env.SRV_URL)
 })
 
 
