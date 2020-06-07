@@ -35,6 +35,7 @@ class Burgerbuilder extends PureComponent {
             }
             this.cost = formatCost;
             this.setState({ ingredients: formatIngredients });
+            this.setState({ amount: 0 })
         }
         catch (err) {
             console.log(err)
