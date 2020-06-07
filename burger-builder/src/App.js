@@ -7,9 +7,13 @@ import Orders from './components/Orders/Orders';
 import OrderSummary from './components/OrderSummary/OrderSummary';
 import { Switch, Route } from 'react-router-dom'
 import Sidebar from './components/Sidebar/Sidebar'
-
+import { readEnv, baseURL } from './environment'
 class App extends Component {
 
+  constructor() {
+    super()
+    readEnv()
+  }
   state = {
     clicked: false
   }

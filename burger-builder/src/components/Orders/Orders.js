@@ -4,6 +4,7 @@ import Order from './Order/Order'
 import axios from 'axios'
 import Spinner from '../Spinner/Spinner'
 import classes from './Order/Order.module.css'
+import {baseURL} from '../../environment'
 
 
 class Orders extends Component {
@@ -14,7 +15,7 @@ class Orders extends Component {
         try {
             let response = await axios({
                 url: '/orders',
-                baseURL: process.env.SRV_URL || ('http://localhost:4000')
+                baseURL: baseURL
             })
             let res = response.data.reverse()
             let item = []

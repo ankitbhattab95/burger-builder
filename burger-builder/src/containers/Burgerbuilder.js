@@ -1,3 +1,4 @@
+import {baseURL} from '../environment'
 import React, { PureComponent } from 'react';
 import Aux from '../components/Aux/Aux'
 import Burger from '../components/Burger/Burger'
@@ -20,9 +21,12 @@ class Burgerbuilder extends PureComponent {
 
     async componentDidMount() {
         try {
+            process.env.SRV_URL='test'
+            // console.log('--------------------------',process.env.SRV_URL || ('http://localhost:4000'))
             let res = await axios({
                 url: 'getIngredientDetails',
-                baseURL: process.env.SRV_URL || ('http://localhost:4000')
+                baseURL: baseURL
+                // baseURL: process.env.SRV_URL || ('http://localhost:4000')
             })
             let formatIngredients = {}
             let formatCost = {}
@@ -91,7 +95,7 @@ class Burgerbuilder extends PureComponent {
                 url: '/confirm',
                 method: 'post',
                 data: body,
-                baseURL: process.env.SRV_URL || ('http://localhost:4000')
+                baseURL: baseURL
             });
         }
         catch (err) {
