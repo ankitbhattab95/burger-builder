@@ -3,6 +3,8 @@
 # dependencies
 /node_modules
 /burger-builder/node_modules
+/burger-builder/.env*.local
+/burger-builder/.env
 /.pnp
 .pnp.js
 
