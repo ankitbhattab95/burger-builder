@@ -21,8 +21,7 @@ class Burgerbuilder extends PureComponent {
 
     async componentDidMount() {
         try {
-            process.env.SRV_URL='test'
-            // console.log('--------------------------',process.env.SRV_URL || ('http://localhost:4000'))
+            console.log('CDM base = ',baseURL)
             let res = await axios({
                 url: 'getIngredientDetails',
                 baseURL: baseURL
