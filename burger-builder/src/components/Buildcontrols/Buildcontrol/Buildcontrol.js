@@ -1,5 +1,4 @@
 import React from 'react';
-import Aux from '../../Aux/Aux'
 import classes from '../../../css-modules/Burgerbuilder.module.css'
 
 const Buildcontrol = (props) => {

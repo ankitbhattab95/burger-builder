@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import Aux from '../Aux/Aux'
+import React from 'react';
 import Buildcontrol from './Buildcontrol/Buildcontrol'
 import Checkout from '../Checkout/checkout';
 import classes from '../../css-modules/Burgerbuilder.module.css'

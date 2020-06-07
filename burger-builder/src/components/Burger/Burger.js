@@ -13,7 +13,7 @@ const Burger = (props) => {
             test.push(<div className={Object.keys(reorderedObject)[i].toLowerCase()} key={chileKey}></div>)
         }
     }
-    if (test.length != 0) {
+    if (test.length !== 0) {
         layer = test
     }
     return (

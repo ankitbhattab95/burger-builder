@@ -7,11 +7,12 @@ import Orders from './components/Orders/Orders';
 import OrderSummary from './components/OrderSummary/OrderSummary';
 import { Switch, Route } from 'react-router-dom'
 import Sidebar from './components/Sidebar/Sidebar'
-import { readEnv, baseURL } from './environment'
+import { readEnv } from './environment'
 class App extends Component {
 
   constructor() {
     super()
+    console.log('constructor----------------------')
     readEnv()
   }
   state = {

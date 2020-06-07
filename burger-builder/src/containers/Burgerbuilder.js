@@ -90,7 +90,7 @@ class Burgerbuilder extends PureComponent {
                 ingredients: this.state.ingredients,
                 amount: this.state.amount
             };
-            let res = await axios({
+            await axios({
                 url: '/confirm',
                 method: 'post',
                 data: body,
