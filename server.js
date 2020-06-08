@@ -32,7 +32,7 @@ app.use(bodyParser.json())
 //     person.save().then(res => console.log(res))
 // })
 
-app.get('/orders', (req, res) => {
+app.get('/getorders', (req, res) => {
     console.log('---------/orders')
     // orders = new Order()
     Order.find({},(err,docs)=>{

@@ -14,7 +14,7 @@ class Orders extends Component {
     async componentDidMount() {
         try {
             let response = await axios({
-                url: '/orders',
+                url: '/getorders',
                 baseURL: baseURL
             })
             let res = response.data.reverse()
