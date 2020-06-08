@@ -1,6 +1,7 @@
 import React from 'react'
 // import './Navigation.css'
-import classes from './Navigation.css'
+import './Navigation.css'
+// import './Navigation.module.css'
 import logoSvg from '../../Assets/Images/logo.svg'
 import menuIcon from '../../Assets/Images/menu.png'
 import { NavLink } from 'react-router-dom'

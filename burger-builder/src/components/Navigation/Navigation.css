@@ -50,6 +50,8 @@
 }
 .navbar-toggler {
     padding: 0 !important;
+    border: 0;
+    outline: none;
 }
 button  img{
     max-width: 40px;
@@ -67,3 +69,8 @@ button  img{
 /* div ul li ,.inactive{
     color: rgb(243, 212, 36);
 } */
+.navbar-light .navbar-toggler {
+    color: rgba(0,0,0,.5);
+    border-color: rgba(0,0,0,.1);
+    outline: none;
+}
