@@ -1,5 +1,5 @@
 #### About :
-- A simple Ract app, build with an intention of learning React.
+- A simple Ract app, built with an intention of learning React.
 
 #### App deployed on Heroku :
 - [Go to live app - Burger builder](https://buildtheburger.herokuapp.com/)
